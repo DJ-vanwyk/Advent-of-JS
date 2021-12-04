@@ -8,7 +8,7 @@
 <div id="menu">
     <h2>To Go Menu</h2>
     {#each menu as item }
-        <MenuItem label={item.label} price={item.price} image={item.image}/>
+        <MenuItem {...item}/>
     {/each}
 
 </div>

@@ -11,14 +11,14 @@
 	{#if !$cart.length}
 		<p>Your cart is empty</p>
 	{:else}
-		{#each $cart as item }
+		{#each $cart as item (item.id) }
 			<CartItem {...item} />
 		{/each}
 		<hr />
 		<table>
 			<tr>
 				<td>Subtotal:</td>
-				<td>$ {$subtotal}</td>
+				<td>$ {Math.round(($subtotal + Number.EPSILON) * 100) / 100}</td>
 			</tr>
 			<tr>
 				<td>Tax:</td>
@@ -26,7 +26,7 @@
 			</tr>
 			<tr>
 				<td>Total:</td>
-				<td>$ {total}</td>
+				<td>$ {Math.round((total + Number.EPSILON) * 100) / 100}</td>
 			</tr>
 		</table>
 	{/if}
